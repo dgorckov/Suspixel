@@ -6,7 +6,6 @@ on:
       archive-name:
         type: string
         required: true
-        description: "The name of the source archive"
       release-name:
         type: string
         required: true
