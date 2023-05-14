@@ -1,5 +1,5 @@
-name: Zip resource pack to archieve
-run-name: Compile resource pack
+name: Create release
+run-name: Release resource pack
 on: 
   workflow_dispatch:
     inputs:
@@ -41,7 +41,7 @@ jobs:
         id: create_release
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "release.zip"
+          artifacts: ${{ inputs.archive-name }}
           name: ${{ inputs.release-name }}
           body: ${{ inputs.release-body }}
           tag: ${{ inputs.release-tag }}
