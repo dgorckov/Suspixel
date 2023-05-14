@@ -6,18 +6,27 @@ on:
       archive-name:
         type: string
         required: true
+        description: "Archive name"
       release-name:
         type: string
         required: true
+        description: "Release name"
       release-body:
         type: string
         required: true
+        description: "Release body text"
       release-tag:
         type: string
         required: true
+        description: "Tag"
       draft:
         type: boolean
         required: true
+        description: "Draft"
+      prerelease:
+        type: boolean
+        required: true
+        description: "Prerelease"
 
 
 jobs:
@@ -48,3 +57,4 @@ jobs:
           body: ${{ inputs.release-body }}
           tag: ${{ inputs.release-tag }}
           draft: ${{ inputs.draft }}
+          prerelease: ${{ inputs.prerelease }}
