@@ -16,6 +16,9 @@ on:
       release-tag:
         type: string
         required: true
+      draft:
+        type: boolean
+        required: true
 
 
 jobs:
