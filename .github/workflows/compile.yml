@@ -18,7 +18,7 @@ jobs:
     
       - name: Zip files
         run: |
-          git archive --format=zip HEAD -o release.zip ${{ github.event.inputs.branch }}
+          git archive --format=zip HEAD -o release.zip
           ls -lh release.zip
           
       - name: Upload Articact
