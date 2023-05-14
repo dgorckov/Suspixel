@@ -1,0 +1,31 @@
+name: zip-pack
+run-name: Compile resource pack
+on: 
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: 'The name of the branch to zip files from'
+        required: true
+        type: string
+
+
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+    
+      - name: Zip files
+        run: |
+          git archive --format=zip HEAD -o release.zip ${{ github.event.inputs.branch }}
+          ls -lh release.zip
+          
+      - name: Upload Articact
+        uses: actions/upload-artifact@v2
+        with:
+          name: release.zip
+          path: release.zip
+          
+          
+          
