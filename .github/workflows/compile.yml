@@ -48,4 +48,8 @@ jobs:
           name: ${{ inputs.release-name }}
           body: ${{ inputs.release-body }}
           tag: ${{ inputs.release-tag }}
+<<<<<<< HEAD
           draft: ${{ inputs.draft }}
+=======
+          draft: ${{ inputs.draft }}
+>>>>>>> dc60edcee59af24b54679ad3cb1b9c8753715acd
