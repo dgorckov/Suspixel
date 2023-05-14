@@ -1,4 +1,4 @@
-name: zip-pack
+name: Zip resource pack to archieve
 run-name: Compile resource pack
 on: 
   workflow_dispatch:
@@ -18,14 +18,14 @@ jobs:
     
       - name: Zip files
         run: |
-          git archive --format=zip HEAD -o release.zip
+          git archive --format=zip HEAD -o release
           ls -lh release.zip
           
       - name: Upload Articact
         uses: actions/upload-artifact@v2
         with:
-          name: release.zip
-          path: release.zip
+          name: release
+          path: release
           
           
           
