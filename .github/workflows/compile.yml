@@ -19,7 +19,7 @@ jobs:
       - name: Zip files
         run: |
           git archive --format=zip HEAD -o release
-          ls -lh release.zip
+          ls -lh release
           
       - name: Upload Articact
         uses: actions/upload-artifact@v2
