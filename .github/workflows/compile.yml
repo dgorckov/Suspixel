@@ -13,14 +13,14 @@ jobs:
     
       - name: Zip files
         run: |
-          git archive --format=zip HEAD -o release
-          ls -lh release
+          git archive --format=zip HEAD -o release.zip
+          ls -lh release.zip
           
       - name: Upload Articact
         uses: actions/upload-artifact@v2
         with:
-          name: release.zip
-          path: release
+          name: release
+          path: release.zip
           
           
           
