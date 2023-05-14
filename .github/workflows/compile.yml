@@ -1,7 +1,18 @@
 name: Zip resource pack to archieve
 run-name: Compile resource pack
 on: 
-  workflow_dispatch
+  workflow_dispatch:
+    inputs:
+      archive-name:
+        type: string
+        required: true
+        description: "The name of the source archive"
+      release-name:
+        type: string
+        required: true
+      release-body:
+        type: string
+        required: true
 
 
 jobs:
@@ -13,28 +24,21 @@ jobs:
     
       - name: Zip files
         run: |
-          git archive --format=zip HEAD -o release.zip
-          ls -lh release.zip
+          git archive --format=zip HEAD -o ${{ inputs.archive-name }}
+          ls -lh ${{ inputs.archive-name }}
           
       - name: Upload Articact
         uses: actions/upload-artifact@v2
         with:
           name: release
-          path: release.zip
+          path: ${{ inputs.archive-name }}
       - name: Create Release
         id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: ncipollo/release-action@v1
         with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
-          body: |
-            Changes in this Release
-            - First Change
-            - Second Change
-          draft: false
-          prerelease: false
+          artifacts: "release.zip"
+          name: ${{ inputs.release-name }}
+          body: ${{ inputs.release-body }}
           
           
           
