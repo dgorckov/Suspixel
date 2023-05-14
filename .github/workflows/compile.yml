@@ -13,6 +13,9 @@ on:
       release-body:
         type: string
         required: true
+      release-tag:
+        type: string
+        required: true
 
 
 jobs:
@@ -39,6 +42,7 @@ jobs:
           artifacts: "release.zip"
           name: ${{ inputs.release-name }}
           body: ${{ inputs.release-body }}
+          tag: ${{ inputs.release-tag }}
           
           
           
