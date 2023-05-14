@@ -1,12 +1,7 @@
 name: Zip resource pack to archieve
 run-name: Compile resource pack
 on: 
-  workflow_dispatch:
-    inputs:
-      branch:
-        description: 'The name of the branch to zip files from'
-        required: true
-        type: string
+  workflow_dispatch
 
 
 jobs:
@@ -24,7 +19,7 @@ jobs:
       - name: Upload Articact
         uses: actions/upload-artifact@v2
         with:
-          name: release
+          name: release.zip
           path: release
           
           
